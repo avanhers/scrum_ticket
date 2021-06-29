@@ -1,0 +1,5 @@
+{   
+    "scripts": {
+    "build": "nest build",
+    "start": "(cd /app/AuthService && npm run start:dev) & (cd /app/UserService && npm run start:dev)"
+  }}

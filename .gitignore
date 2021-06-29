@@ -1,0 +1,5 @@
+server/AuthService/dist
+server/AuthService/node_modules
+server/UserService/dist
+server/UserService/node_modules
+
