@@ -4,7 +4,8 @@ import { UserController } from './user.controller';
 import { UserService } from './user.service';
 import {UserSchema} from './user.schema';
 import {ClientsModule,Transport} from '@nestjs/microservices';
-
+import {RolesGuard} from "./roles/roles.guards"
+import{APP_GUARD} from "@nestjs/core"
 @Module({
   imports:[
     ClientsModule.register([{
@@ -12,7 +13,7 @@ import {ClientsModule,Transport} from '@nestjs/microservices';
       transport: Transport.TCP,
       options: {
         host: 'localhost',
-        port: 4000
+        port: 4010
       }
     }]),
     MongooseModule.forFeature([
@@ -22,7 +23,10 @@ import {ClientsModule,Transport} from '@nestjs/microservices';
       }
     ]),
   ],
-  providers: [UserService],
+  providers: [UserService,{
+    provide: APP_GUARD,
+    useClass: RolesGuard,
+  },],
   controllers: [UserController],
   
 })

@@ -1,9 +1,12 @@
-import { Body, Controller,Get, Param, Post , Logger, UseGuards} from '@nestjs/common';
+import { Body, Controller,Get, Param, Post , Logger, UseGuards,Request} from '@nestjs/common';
+
 import {UserService} from './user.service';
 import { MessagePattern } from '@nestjs/microservices';
 import {UserDto} from './user.dto';
 import {hash} from 'bcrypt';
 import {AuthGuard} from './guards/auth.guards'
+import {Role} from "./roles/role.enum"
+import {Roles} from './roles/role.decorator'
 @Controller('user')
 export class UserController {
     private logger= new Logger('UserController');
@@ -25,17 +28,23 @@ export class UserController {
         this.logger.log('user ' + user.username +' add to mongoDB');
         return this.userService.postUser(user);
     }
+
     @UseGuards(AuthGuard)
     @Get('greet') 
     async greet(): Promise<string> {
     return 'Greetings authenticated user';
     }
 
-    @Get(':username')
+    @Get('username/:username')
     public  getUserByLogin(@Param('username') username: string){
         console.log(this.userService.getUserByLogin(username))
         return this.userService.getUserByLogin(username);
     }
 
-
+    @Get('test')
+    @Roles(Role.PO)
+    create() {
+        
+        console.log("test reussi")
+}
 }

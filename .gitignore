@@ -2,4 +2,5 @@ server/AuthService/dist
 server/AuthService/node_modules
 server/UserService/dist
 server/UserService/node_modules
-
+server/TicketService/dist
+server/TicketService/node_modules

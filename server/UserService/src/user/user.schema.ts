@@ -10,6 +10,10 @@ export const UserSchema = new mongoose.Schema({
          type:String,
          required:true,
       },
-     role:String,
+     roles:{
+         type:[String],
+         enum:["po","dev","sm"],
+         default:"dev"
     }
+   }
 );

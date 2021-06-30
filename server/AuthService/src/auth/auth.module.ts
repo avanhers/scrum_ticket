@@ -13,7 +13,7 @@ import constants from "./constants";
     transport: Transport.TCP,
     options: {
       host: 'localhost',
-      port: 4010,
+      port: 4000,
     }
   }]), JwtModule.register({
     secret: constants.jwtSecret,

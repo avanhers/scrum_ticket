@@ -12,14 +12,12 @@ export class AuthGuard implements CanActivate {
       context: ExecutionContext,
     ): Promise<boolean> {
       const req = context.switchToHttp().getRequest();
-      console.log("canactivate");
       try{
         const res = await this.client.send(
           { role: 'auth', cmd: 'check' },
           { jwt: req.headers['authorization']?.split(' ')[1]})
           .pipe(timeout(5000))
           .toPromise<boolean>();
-           
           return res;
       } catch(err) {
         Logger.error(err);
