@@ -18,6 +18,17 @@ docker-compose up
 
 The Server and mongoDB container are now running, you can check the log to see what happen
 
+* I advice you to install node_modules locally too, then you wil not have any warning when looking at files
+
+```console
+cd server/AuthService
+npm install 
+cd ../UserService
+npm install
+cd ../TicketService
+npm install
+```
+
 ## Example of request to interact with api
 
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/13787739-b62ad118-9e48-45b3-9ba1-70bcb5072406?action=collection%2Ffork&collection-url=entityId%3D13787739-b62ad118-9e48-45b3-9ba1-70bcb5072406%26entityType%3Dcollection%26workspaceId%3D42ea537e-0135-4d5b-8e51-62ac5fad979a)
