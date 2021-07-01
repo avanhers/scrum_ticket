@@ -2,14 +2,14 @@
 
 ## Installation
 
-\*open a terminal and clone this repository
+* open a terminal and clone this repository
 
 ```console
 git clone  https://github.com/avanhers/scrum_ticket.git avanhers_test
 cd avanhers_test
 ```
 
-\*Create Images and run container
+* Create Images and run container
 
 ```console
 docker-compose build
@@ -26,13 +26,13 @@ The Server and mongoDB container are now running, you can check the log to see w
 
 If you want to have access to mongodb databases in console mode
 
-\*First enter you container in console mode with this command
+* First enter you container in console mode with this command
 
 ```console
 docker exec -ti db_mongo bash
 ```
 
-\*Then launch mongo in your container by simply taping
+* Then launch mongo in your container by simply taping
 
 ```console
 mongo
