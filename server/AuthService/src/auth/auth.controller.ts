@@ -1,4 +1,4 @@
-import { Controller,Body, Post, UseGuards, Request, Logger } from '@nestjs/common';
+import { Controller, Get, UseGuards, Request, Logger } from '@nestjs/common';
 import { LocalAuthGuard } from './local-auth.guard';
 import { AuthService } from './auth.service';
 import { MessagePattern } from '@nestjs/microservices';
@@ -9,7 +9,7 @@ export class AuthController {
   constructor(
     private readonly authService: AuthService) {}
   @UseGuards(LocalAuthGuard)
-  @Post('auth')
+  @Get('auth')
   async login(@Request() req) {
     this.logger.log("Post Request Accepted: User will be authenticate by receiving credentials")
     return this.authService.login(req.user);

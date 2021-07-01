@@ -44,14 +44,14 @@ export class UserController {
     }
 
     @Delete('ticket')
-    @Roles(Role.SM)
+    @Roles(Role.PO)
     public deleteTicket(@Request() req)
     {
         return this.userService.deleteTicket(req.body);
     }
 
     @Put('ticket/update')
-    @Roles(Role.SM)
+    @Roles(Role.SM,Role.PO)
     public updateTicket(@Request() req)
     {
         return this.userService.updateTicket(req.body);
