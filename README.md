@@ -34,9 +34,9 @@ To Update or Delete a ticket you will need is reference(mongo \_id) and add it i
 
 ## To have a look inside mongoDB databases
 
-If you want to have access to mongodb databases in console mode
+If you want to have access to mongodb databases in console mode, 
 
-* First enter you container in console mode with this command
+* Open a new terminal and type this
 
 ```console
 docker exec -ti db_mongo bash
