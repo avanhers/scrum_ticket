@@ -54,3 +54,6 @@ mongo
 use tickets
 db.tickets.find()
 ```
+
+## License
+Nest is MIT License
