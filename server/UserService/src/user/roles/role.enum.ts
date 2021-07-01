@@ -1,5 +1,5 @@
 export enum Role {
-    Dev = 'dev',
+    DEV = 'dev',
     PO = 'po',
-    ScrumMaster='sm'
+    SM='sm'
   }

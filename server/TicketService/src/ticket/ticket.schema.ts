@@ -26,11 +26,6 @@ export const TicketSchema = new Schema({
         type:String,
         required:true,
     },
-    ref:{
-        type: Number,
-        unique:true,
-        required:true
-    },
     createdBy: {
         type:Schema.Types.ObjectId
         , 
@@ -39,6 +34,6 @@ export const TicketSchema = new Schema({
     status:{
         type:String,
         enum:['New','Ready','In progress','Ready for test', 'Done','Archived'],
-        default:'new'
+        default:'New'
     }
 });

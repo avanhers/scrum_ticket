@@ -1,4 +1,4 @@
-import { Body, Controller,Get, Param, Post , Logger, UseGuards,Request} from '@nestjs/common';
+import { Body, Controller,Get, Delete, Param, Post ,Put, Logger, UseGuards,Request} from '@nestjs/common';
 
 import {UserService} from './user.service';
 import { MessagePattern } from '@nestjs/microservices';
@@ -17,10 +17,6 @@ export class UserController {
     this.logger.log("Receive Message from AuthService <USER : GET> , Trying to find User in MongoDB")
     return this.userService.getUserByLogin(data.username);
   }
-    @Get()
-    async getUsers(){
-        return this.userService.getUsers();
-    }
 
     @Post()
     public async postUser(@Body() user:UserDto){
@@ -37,14 +33,37 @@ export class UserController {
 
     @Get('username/:username')
     public  getUserByLogin(@Param('username') username: string){
-        console.log(this.userService.getUserByLogin(username))
+        //console.log(this.userService.getUserByLogin(username))
         return this.userService.getUserByLogin(username);
     }
 
-    @Get('test')
-    @Roles(Role.PO)
-    create() {
-        
-        console.log("test reussi")
-}
+    @Post('ticket/create')
+    @Roles(Role.SM)
+    public  createTicket(@Request() req){
+        return this.userService.createTicket(req.user._id,req.body);
+    }
+
+    @Delete('ticket')
+    @Roles(Role.SM)
+    public deleteTicket(@Request() req)
+    {
+        return this.userService.deleteTicket(req.body);
+    }
+
+    @Put('ticket/update')
+    @Roles(Role.SM)
+    public updateTicket(@Request() req)
+    {
+        return this.userService.updateTicket(req.body);
+    }
+
+    @Get('ticket/search')
+    public searchTicket(@Request() req)
+    {
+        return this.userService.searchTicket(req.body);
+    }
+    
+
+    
+
 }

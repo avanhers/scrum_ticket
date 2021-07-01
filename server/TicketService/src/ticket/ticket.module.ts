@@ -2,6 +2,8 @@ import { Module } from "@nestjs/common";
 import { ClientsModule, Transport } from "@nestjs/microservices";
 import { TicketService } from "./ticket.service";
 import { TicketController } from "./ticket.controller";
+import { MongooseModule } from '@nestjs/mongoose';
+import {TicketSchema} from './ticket.schema';
 
 @Module({
   imports: [
@@ -13,16 +15,15 @@ import { TicketController } from "./ticket.controller";
         port: 4000,
     }
   }]),
-    ClientsModule.register([{
-        name: 'AUTH_CLIENT',
-        transport: Transport.TCP,
-        options: {
-        host: 'localhost',
-        port: 4010,
+  MongooseModule.forFeature([
+    {
+      name:'Ticket',
+      schema:TicketSchema,
     }
-  }]),
+  ])
 ],
-  controllers: [TicketController],
-  providers: [TicketService]
+  providers: [TicketService],
+  controllers: [TicketController]
+  
 })
 export class TicketModule {}

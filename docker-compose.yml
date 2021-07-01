@@ -8,13 +8,16 @@ services:
     ports:
       - 3000:3000
       - 3010:3010
+      - 3020:3020
     environment:
       - DB_URL=mongodb://db_mongo
     volumes:
       - ./server/UserService:/app/UserService
       - ./server/AuthService:/app/AuthService
+      - ./server/TicketService:/app/TicketService
       - /app/AuthService/node_modules
       - /app/UserService/node_modules
+      - /app/TicketService/node_modules
     command: npm run start
     restart: always
 
@@ -26,5 +29,6 @@ services:
     restart: always
     ports:
       - "27017:27017"
+    command: mongod --quiet --logpath /dev/null #too much log from mongoDB
 volumes:
   mongodata:

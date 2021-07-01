@@ -1,5 +1,5 @@
 {   
     "scripts": {
     "build": "nest build",
-    "start": "(cd /app/AuthService && npm run start:dev) & (cd /app/UserService && npm run start:dev)"
+    "start": "(cd /app/AuthService && npm run start:dev) & (cd /app/UserService && npm run start:dev) & (cd /app/TicketService && npm run start:dev)"
   }}

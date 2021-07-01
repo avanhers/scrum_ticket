@@ -16,6 +16,14 @@ import{APP_GUARD} from "@nestjs/core"
         port: 4010
       }
     }]),
+    ClientsModule.register([{
+      name: 'TICKET_CLIENT',
+      transport: Transport.TCP,
+      options: {
+        host: 'localhost',
+        port: 4020
+      }
+    }]),
     MongooseModule.forFeature([
       {
         name:'User',

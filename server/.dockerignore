@@ -1,4 +1,6 @@
 /AuthService/node_modules
 /AuthService/dist
+/TicketService/dist
 /UserService/node-modules
 /UserService/dist
+/TicketService/dist

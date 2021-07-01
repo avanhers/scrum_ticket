@@ -12,6 +12,7 @@
     "@nestjs/platform-express": "^7.6.18",
     "mongoose": "^5.13.0",
     "reflect-metadata": "^0.1.13",
+    "regex": "^0.1.1",
     "rimraf": "^3.0.2",
     "rxjs": "^6.6.7"
   }
